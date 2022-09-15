@@ -1,22 +1,13 @@
 <p align='middle'>
 	<img src="../README.assets/js.png"
 </p>
-
-
-
+<br>
 
 <h2 align='middle'>자바스크립트 기초</h2>
 
 <p align='middle'>자바스크립트(ES6) 공부 후 정리 하였습니다</p>
-
-
-
-
-
-
-
-
-
+<br>
+<br>
 
 
 ## 🔥 Goal
