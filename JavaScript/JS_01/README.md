@@ -1,5 +1,5 @@
 <p align='middle'>
-	<img src="../README.assets/js.png"
+	<img src="../README.assets/js.png">
 </p>
 <br>
 
