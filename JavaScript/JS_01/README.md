@@ -1,10 +1,15 @@
-![js](../README.assets/js.png)
+<p align='middle'>
+	<img src="../README.assets/js.png"
+</p>
 
 
 
-<center><h2>자바스크립트 기초</h2></center>
 
-<center>자바스크립트(ES6) 공부 후 정리 하였습니다
+<h2 align='middle'>자바스크립트 기초</h2>
+
+<p align='middle'>자바스크립트(ES6) 공부 후 정리 하였습니다</p>
+
+
 
 
 
@@ -59,7 +64,7 @@
 
 ## 🔧세부 내용
 
-##### 변수
+#### 변수
 
 ```javascript
 name = 'Min'
@@ -80,7 +85,7 @@ age = 30
 
 
 
-##### 자료형
+#### 자료형
 
 - 문자형
 
