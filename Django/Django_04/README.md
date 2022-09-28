@@ -4,10 +4,11 @@
   </p>
   <br>
   <h2>Django 04</h2>
-  <p>TEMPLATES, App URL mapping 내용 정리</p>
+  <p>Template namespace, App URL mapping 내용 정리</p>
   <br>
   <br>
 </div>
+
 
 
 
@@ -24,7 +25,7 @@
 > - 개요
 > - 이름공간 구분
 >
-> 최상단 templates 설정
+> 최상단 templates 경로 설정
 >
 > App URL mapping
 >
@@ -44,8 +45,8 @@
     $ cd folder  # 폴더로 이동
     $ python -m venv folder-venv  # 가상환경 생성
     $ ls  # 가상환경 이름 확인
-    test-venv/
-    $ source test-venv/Scripts/activate  # 가상환경 실행
+    folder-venv/
+    $ source folder-venv/Scripts/activate  # 가상환경 실행
     ```
     
 2. Django LTS 버전 설치
@@ -63,7 +64,7 @@
    $ python manage.py runserver  # 서버 구동
    ```
 
-
+<br>
 
 ### Template namespace
 
@@ -71,7 +72,7 @@
 
 - Django는 기본적으로 app_name/templates/ 경로에 있는 templates 파일들만 찾을 수 있으며, 
 
-settings.py의 INSTALLED_APPS에 작성한 app 순서로 template을 검색 후 렌더링 한다
+​	settings.py의 INSTALLED_APPS에 작성한 app 순서로 template을 검색 후 렌더링 한다
 
 - templates 나눠져 있어도 한 곳으로 여기므로 같은 폴더라고 생각하기
 
@@ -81,7 +82,7 @@ Django templates의 기본 경로 자체를 변경할 수는 없기 때문에 �
 
 👉 Django templates의 기본 경로에 app과 같은 이름의 폴더를 생성해
 
-폴더 구조를 `app_name/templates/app_name/` 형태로 변경
+​	폴더 구조를 `app_name/templates/app_name/` 형태로 변경
 
 ![04_1](../README.assets/04_1.png)
 
@@ -89,9 +90,9 @@ Django templates의 기본 경로 자체를 변경할 수는 없기 때문에 �
 
 ![04_2](../README.assets/04_2.png)
 
+<br>
 
-
-### 최상단 templates 설정
+### 최상단 templates 경로 설정
 
 👉 기반이 되는 파일은 앱이 아닌 최상단에 위치시킬 수 있다
 
@@ -105,7 +106,7 @@ Django templates의 기본 경로 자체를 변경할 수는 없기 때문에 �
 
 ![04_5](../README.assets/04_5.png)
 
-
+<br>
 
 ### App URL mapping
 
