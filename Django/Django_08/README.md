@@ -117,7 +117,9 @@
 
      > 선언된 모델에 따른 필드 구성
 
-     ✔ 1) Form 생성          ✔ 2) 유효성 검사
+     ✔ 1) Form 생성          
+
+     ✔ 2) 유효성 검사
 
      ![08_5](../README.assets/08_5.png)
 
@@ -130,13 +132,13 @@
        > GET http://127.0.0.1:8000/articles/create/
 
        (1) urls.py
-
+   
        ```python
        path('create/', views.create, name='create')
        ```
 
        (2) views.py
-
+   
        ```python
        def create(request):
            article_form = ArticleForm()
@@ -147,7 +149,7 @@
        ```
 
        (3) articles/create.html
-
+   
        ```django
        <h1>글쓰기</h1>
        <form action="" method="POST">
@@ -162,7 +164,7 @@
        ✔️ 어떤 필드를 구성할 것인지 (`name`, `value`)
 
        ✔️ 어디로 보낼 것인지 (`action`, `method`)
-
+   
        <br>
      
      - 입력받은 데이터 처리
