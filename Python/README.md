@@ -55,34 +55,80 @@
 > 내장 함수
 >
 > - abs
+>
 > - all
+>
 > - any
+>
 > - bool
+>
 > - count
+>
 > - dict
+>
 > - filter
+>
 > - float
+>
+> - format
+>
+>   - format() 내장 함수를 이용하면 숫자를 다른 진수의 문자열로 바꿀 때 접두어(0b, 0o, ox 등)를 제외할 수 있다.
+>
+>     ```python
+>     >>> format(42, 'b') # 2진수
+>     '101010'
+>     >>> format(42, 'o') # 8진수
+>     '52'
+>     >>> format(42, 'x') # 16진수
+>     '2a'
+>     ```
+>
+>     
+>
 > - index
+>
 > - int
+>
 > - isalpha / isalnum
+>
 > - isupper / islower
+>
 > - join
+>
 > - len
+>
 > - list
+>
 > - map
+>
 > - max / min
+>
 > - ord / chr
+>
 > - range
-> - reverse / reversed
+>
 > - remove
+>
+> - replace 확인!!
+>
+> - reverse / reversed
+>
 > - round
+>
 > - sort / sorted
+>
 > - set
+>
 > - split
+>
 > - str
+>
 > - sum
+>
 > - type
+>
 > - upper / lower
+>
 > - zip
 >
 > 모듈
