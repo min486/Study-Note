@@ -43,7 +43,7 @@
 >
 > 1. 커스텀 User 모델로 지정
 >
-> 2. User 클래스 작성
+> 2. 커스텀 User 클래스 작성
 >
 > 3. migrations 진행
 >
@@ -54,9 +54,29 @@
 > - UserCreationForm
 > - UserCreationForm 커스텀
 >
-> 회원 가입 기능 구현
+> ⭐ 회원 가입 기능 구현 ⭐
+>
+> 1. 폼 생성
+>
+>    POST 요청 처리 (오류 확인용)
+>
+> 2. forms.py에서 상속 받아서 커스텀 진행 
+>
+> 3. POST 요청 처리
+>
+> 4. 회원가입 진행하면 데이터베이스에 저장됨
+>
+> 5. get_user_model() 사용
+>
+> 
+>
+> 프로필 페이지 만들기
+>
+> 
 >
 > [참고] shell_plus
+>
+> [참고] Django_bootstrap5
 
 ## 🔧 세부 내용
 
@@ -143,7 +163,7 @@ django.contrib.auth
 
 - 프로젝트 시작 시 설정하기 위한 것이며 , 참조하는 모델은 첫 번째 마이그레이션에서 사용할 수 있어야 함
 
-​	👉 즉, 첫번째 마이그레이션 전에 확정 지어야 하는 값
+  👉 즉, 첫번째 마이그레이션 전에 확정 지어야 하는 값
 
 다음과 같은 기본 값을 가지고 있음
 
@@ -178,10 +198,6 @@ django.contrib.auth
 ​	👉 커스텀 User 모델로 지정되어 있다면 auth_user 테이블이 아니라 `accounts_user 테이블`을 사용하게 됨
 
 ![08_5](README.assets/08_5.png)
-
-
-
-
 
 <br>
 
@@ -233,8 +249,6 @@ User 객체는 인증 시스템의 가장 기본
 
 ​	![shell3](README.assets/shell3.png)
 
-
-
 <br>
 
 ### 사전 설정
@@ -245,21 +259,17 @@ User 객체는 인증 시스템의 가장 기본
 
 ✔ auth와 관련한 경로나 키워드들을 Django 내부적으로 accounts라는 이름으로 사용하고 있기 때문에 
 
-​	되도록 `accounts`로 지정하는 것을 권장
+​		되도록 `accounts`로 지정하는 것을 권장
 
 #### url 분리 및 매핑
 
 ![08_22](README.assets/08_22.png)
 
-![08_2](README.assets/08_2.png)
-
-
+![08_333](README.assets/08_333.png)
 
 <br>
 
 ### 대체하기
-
-
 
 1. 커스텀 User 모델로 지정
 
@@ -268,14 +278,14 @@ User 객체는 인증 시스템의 가장 기본
 
 ​		![08_8](README.assets/08_8.png)
 
-2. User 클래스 작성
+2. 커스텀 User 클래스 작성
 
-   - AbstractUser를 상속받는 커스텀 User 클래스 작성
-   - 기존 User 클래스도 `AbstractUser를 상속` 받기 때문에 커스텀 User 클래스도 완전히 같은 모습을 가지게 된다
+   - `AbstractUser를 상속` 받는 커스텀 User 클래스를 만든다
+   - 기존 User 클래스도 AbstractUser를 상속 받기 때문에 커스텀 User 클래스도 완전히 같은 모습을 가지게 된다
 
    ![08_7](README.assets/08_7.png)
 
-   👉 AbstractUser라고 하는 장고 내부에 있으면서 어느정도 만들어진 모델을 상속받아 만들었다
+   👉 `AbstractUser`는 장고 내부에 있으면서 어느정도 만들어진 모델이다
 
  3. migrations 진행
 
@@ -291,20 +301,20 @@ User 객체는 인증 시스템의 가장 기본
     ![superuser](README.assets/superuser.png)
 
     ![db](README.assets/db.png)
-    
+
     ​	👉 지정한 곳 (accounts_user)에 admin이 저장된 것을 확인할 수 있다
-    
-    ​	✔ 모델을 직접 정의한게 아니라 장고 내부에 있는걸 가져와서 (클래스 상속)  바로 migrate까지 진행한 상태
+
+    ✔ 모델을 직접 정의한게 아니라 장고 내부에 있는걸 가져와서 (클래스 상속) 바로 migrate까지 진행한 상태
 
 4.  커스텀 User 모델 등록
 
    기본 User 모델이 아니기 때문에 등록하지 않으면 `admin site`에 출력되지 않음
    
-   👉 admin.py에 등록
+   👉 admin.py에 커스텀 User 모델을 등록한다
+   
+   ​		(최하단쪽 회원 가입 기능 구현 => 5. get_user_model() 사용 => admin.py 수정 참고)
 
-​		
-
-
+<br>
 
 ### 회원 가입
 
@@ -312,13 +322,11 @@ User 객체는 인증 시스템의 가장 기본
 
 > 주어진 username과 password로 권한이 없는 새 user를 생성하는 ModelForm
 
-3 개의 필드를 가짐
+`3 개의 필드`를 기본으로 가짐
 
 - username (from the user model)
 - password1
 - Password2
-
-
 
 #### UserCreationForm 커스텀
 
@@ -328,22 +336,16 @@ User 객체는 인증 시스템의 가장 기본
 
   👉 현재 프로젝트에서 활성화된 사용자 모델 (active user)을 반환
 
-  👉 Django에서 User 클래스는 커스텀을 통해 변경 가능하여 직접 참조하는 대신 `get_user_model` 사용할 것을 권장함
+  👉 Django에서 User 클래스는 커스텀을 통해 변경 가능하여, 직접 참조하는 대신 `get_user_model()` 사용할 것을 권장함
 
 - CustomUserCreationForm() 으로 대체하기
 
 - 회원가입 진행 후 테이블 확인
 
-#### CustomUserCreationForm() 으로 대체하기
+<br>
 
 
-
-
-
-#### 회원가입 진행 후 테이블 확인
-
-
-### 회원 가입 기능 구현
+### ⭐ 회원 가입 기능 구현 ⭐
 
 1. 폼 생성
 
@@ -355,93 +357,90 @@ User 객체는 인증 시스템의 가장 기본
 
 ![기능04](README.assets/기능04.png)
 
-2. POST 요청 처리
+<br>
 
-   ![05_3](README.assets/05_3.png)
+POST 요청 처리 (오류 확인용)
 
+![05_3](README.assets/05_3.png)
+
+❌❌❌❌❌❌❌ 오류 발생 !! ❌❌❌❌❌❌❌
+
+👉 settings.py 에서 기본설정인 auth.User => accounts.User로 변경으로 인한 오류 발생.
+
+- UserCreationForm을 바로 쓰진 못한다 
+
+  why ??  
+
+  내부 설정 때문에
+
+
+- UserCreationForm은 ModelForm을 상속 받고 있고 
+- ModelForm에는 모델 User 정보를 담고 있다
+
+- `이 User`는 auth의 User (`auth.User`)를 의미함
+
+- 그래서 상속을 받아서 바꿔줘야 한다
+- `이 User`가 아니라 accounts에 정의한 User (⭐accounts.User⭐)를 의미하도록 바꿔줘야함 
+
+- 지금 쓰고있는 모델은 accounts에 있는 모델이기 때문에
+
+<br>
+
+2. forms.py에서 상속 받아서 커스텀 진행 
+
+   (실습할때는 2번 대신 `5번` 사용하기)
    
-
-   settings.py 에서 기본설정인 auth.User => accounts.User로 변경으로 인한 오류 발생.
-
-   (UserCreationForm을 바로 쓰진 못한다)
-
-   why??  
-
-   내부 설정 때문에.
-
-   UserCreationForm은 ModelForm을 상속 받고 있다. ModelForm에는 모델 User 정보를 담고 있다.
-
-   이 User는 auth의 User (auth.User)를 의미함. 
-
-   그래서 상속을 받아서 바꿔줘야 한다 => 이 User가 아니라 accounts에 정의한 User (accounts.User)를 의미하도록 바꿔줘야함 
-
-   (내가 지금 쓰고있는 모델은 accounts에 있는 모델이기 때문에)
-
-   👉 상속 받아서 커스텀 진행
-
-   
-
    ![기능06](README.assets/기능06.png)
 
-forms.py에서 상속 진행
+👉 기존에 forms.ModelForm을 직접 상속받아서 만든 것과 달리
 
-기존에 forms.ModelForm을 직접 상속받아서 자신이 만든 것과 달리
+​		UserCreationForm (이미 만들어진 폼)을 바탕으로 상속받아 자신이 커스텀해서 만들었다
 
-UserCreationForm (이미 만들어진 폼)을 바탕으로 상속받아서 자신이 커스텀해서 만들었다
+📌 필드를 전체로 하면 여러가지 다 출력된다 (fields = '_ _ all _ _')
 
+<br>
 
-
-*필드를 전체로 하면 다 출력되므로 (fields = '_ _ all _ _')
-
-
+3. POST 요청 처리 
 
 ![기능07](README.assets/기능07.png)
 
-회원가입 진행하면 데이터베이스에 저장됨
+4. 회원가입 진행하면 데이터베이스에 저장됨
 
 ![기능08](README.assets/기능08.png)
 
-이후 get_user_model()을 사용한다!!
+5. get_user_model() 사용
 
-- admin 확인
+   - forms.py 수정
 
-  ![기능09](README.assets/기능09-166591724477113.png)
+     ![기능11](README.assets/기능11.png)
 
+     👉 함수 호출하기
 
+     - accounts.User를 쓰는데 (장고도 쓰고 자신도 쓰면서)
 
-![기능10](README.assets/기능10.png)
+     - 이 User는 언제든지 변경 될 수 있기 때문에
 
-- forms.py
+     - User 참조할때는 모델에서 직접 꺼내서 쓰는게 아니라  (직접 참조 ❌)
 
-  ![기능11](README.assets/기능11.png)
+     - get_user_model() 함수를 통해서 User 클래스를 참조해야 한다
 
-  함수 호출하기
+     ✔ 여기하지 하면 User => get_user_model로 변경 완료
 
-  
+     ✔ 모델에서 User 클래스를 쓸 때 함수를 가져와서 호출하면 
 
-  accounts.User를 쓰는데 이 User는 언제든지 변경이 될 수 있기 때문에...
+     ​		return 값이 setting.py에 지정되어 있는 User (`accounts.User`) 클래스를 의미하게 된다
 
-  (장고도 쓰고 자신도 쓰면서)
+   <br>
 
-  그래서 User 참조할때는 모델에서 직접 꺼내서 쓰는게 아니라 
+   - admin.py 수정
 
-  get_user_model() 함수를 통해서 User 클래스를 참조해야 한다
+     ![기능09](README.assets/기능09-166591724477113.png)
 
-  ✔ 여기하지 하면 User => get_user_model로 변경 완료
+     ![기능10_3](README.assets/기능10_3.png)
 
-  ✔ 직접 참조를 하지 않도록 하기위해 
+<br>
 
-  ✔ 모델에서 User 클래스를 쓸 때 함수를 가져와서 호출하면 
-
-  ​	return 값이 setting.py에 지정되어 있는 User (accounts.User) 클래스를 의미하게 된다
-
-
-
-프로필 페이지 만들기 (detail.html)
-
-
-
-
+프로필 페이지 만들기
 
 <br>
 
