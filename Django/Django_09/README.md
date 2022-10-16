@@ -70,7 +70,7 @@
 >
 > 프로필 페이지 만들기
 >
-> [📌 shell_plus](#📌-shell_plus)
+> [📌 shell_plus](#shell_plus)
 >
 > [📌 Django_bootstrap5](#📌-django_bootstrap5)
 
@@ -445,7 +445,7 @@ POST 요청 처리 (오류 확인용)
 
 <br>
 
-### 📌 shell_plus
+### shell_plus
 
 ```bash
 $ pip install django-extensions
