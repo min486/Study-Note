@@ -68,7 +68,11 @@
 >
 > 5. get_user_model() 사용
 >
-> 프로필 페이지 만들기
+> [프로필 페이지 만들기](#프로필-페이지-만들기)
+>
+> 1. URL 설정
+> 2. 함수 생성
+> 3. 템플릿에서 유저별 출력
 >
 > [📌 shell_plus](#shell_plus)
 >
@@ -411,7 +415,7 @@ POST 요청 처리 (오류 확인용)
 
 5. get_user_model() 사용
 
-   - forms.py 수정
+   - forms.py
 
      ![08_23](../README.assets/09_23.png)
 
@@ -433,7 +437,7 @@ POST 요청 처리 (오류 확인용)
 
    <br>
 
-   - admin.py 수정
+   - admin.py
 
      ![08_24](../README.assets/09_24.png)
 
@@ -441,7 +445,21 @@ POST 요청 처리 (오류 확인용)
 
 <br>
 
-프로필 페이지 만들기
+### 프로필 페이지 만들기
+
+1. URL 설정
+
+   ![09_31](../README.assets/09_31.png)
+
+2. 함수 생성
+
+   ![09_32](../README.assets/09_32.png)
+
+3. 템플릿에서 유저별 출력
+
+   ![09_33](../README.assets/09_33.png)
+
+   ![09_34](../README.assets/09_34.png)
 
 <br>
 
