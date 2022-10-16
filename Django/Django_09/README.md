@@ -54,7 +54,7 @@
 > - UserCreationForm
 > - UserCreationForm 커스텀
 >
-> [⭐ 회원 가입 기능 구현 ⭐](#회원-가입-기능-구현⭐)
+> [⭐ 회원 가입 기능 구현 ⭐](#회원-가입-기능-구현)
 >
 > 1. 폼 생성
 >
@@ -72,7 +72,7 @@
 >
 > [📌 shell_plus](#shell_plus)
 >
-> [📌 Django_bootstrap5](#📌-django_bootstrap5)
+> [📌 Django_bootstrap5](#django_bootstrap5)
 
 ## 🔧 세부 내용
 
@@ -342,7 +342,7 @@ User 객체는 인증 시스템의 가장 기본
 <br>
 
 
-### 회원 가입 기능 구현⭐
+### 회원 가입 기능 구현
 
 1. 폼 생성
 
@@ -463,7 +463,7 @@ $ python manage.py shell_plus  # 쉘 실행
 
 <br>
 
-### 📌 Django_bootstrap5
+### Django_bootstrap5
 
 ```bash
 $ pip install django-bootstrap5
