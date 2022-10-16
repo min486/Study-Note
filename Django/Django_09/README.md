@@ -54,9 +54,11 @@
 > - UserCreationForm
 > - UserCreationForm 커스텀
 >
-> 
+> 회원 가입 기능 구현
+>
+> [참고] shell_plus
 
-## 🔧세부 내용
+## 🔧 세부 내용
 
 ### 처음 세팅
 
@@ -97,15 +99,11 @@
 >
 > 인증 (Authentication)과 권한 (Authorization) 부여를 함께 제공(처리) 하고 있음
 
-
-
 필수구성은 settings.py의 INSTALLED_APP에 기본으로 되어있음
 
 ```python
 django.contrib.auth
 ```
-
-
 
 #### Authentication (인증)
 
@@ -133,8 +131,7 @@ django.contrib.auth
 
 - 커스텀 User 모델은 기본 User 모델과 동일하게 작동 하면서도 필요한 경우 `나중에 맞춤 설정`할 수 있기 때문
 
-✔ 모델을 변경하는 것은 데이터베이스를 변경하는 것과 같으므로 
-	미리 커스텀을 안하면 나중에 바꾸기 힘들다
+✔ 모델을 변경하는 것은 데이터베이스를 변경하는 것과 같으므로 `미리 커스텀`을 안하면 나중에 바꾸기 힘들다
 
 <br>
 
@@ -160,7 +157,7 @@ django.contrib.auth
 
 ![08_4](README.assets/08_4.png)
 
-​	👉 AbstractUser 모델 상속해서 Custom  진행함
+​	👉 AbstractUser 모델 상속해서 Custom 진행
 
 <br>
 
@@ -178,7 +175,8 @@ django.contrib.auth
 
 ✔ custom User로 변경된 테이블 확인
 
-​	👉 이제 auth_user 테이블이 아니라 accounts_user 테이블을 사용하게 됨
+​	👉 커스텀 User 모델로 지정되어 있다면 auth_user 테이블이 아니라 `accounts_user 테이블`을 사용하게 됨
+
 ![08_5](README.assets/08_5.png)
 
 <br>
@@ -227,6 +225,10 @@ User 객체는 인증 시스템의 가장 기본
 
   👉 정보가 일치하는지 확인하려면 authenticate 함수 사용
 
+📌 쉘을 이용해 간단하게 생성하면 비밀번호가 암호화되어 저장된걸 확인할 수 있다
+
+​	![shell3](README.assets/shell3.png)
+
 
 
 <br>
@@ -269,6 +271,8 @@ User 객체는 인증 시스템의 가장 기본
 
    ![08_7](README.assets/08_7.png)
 
+   👉 AbstractUser라고 하는 장고 내부에 있으면서 어느정도 만들어진 모델을 상속받아 만들었다
+
  3. migrations 진행
 
     모델 만들었으니 makemigrations, migrate 진행
@@ -283,10 +287,10 @@ User 객체는 인증 시스템의 가장 기본
     ![superuser](README.assets/superuser.png)
 
     ![db](README.assets/db.png)
-
-​			👉 지정한 곳 (accounts_user)에 admin이 저장된 것을 확인할 수 있다
-
-​	✔ 모델을 직접 정의한게 아니라 장고 내부에 있는걸 가져와서 (클래스 상속)  바로 migrate까지 진행한 상태
+    
+    ​	👉 지정한 곳 (accounts_user)에 admin이 저장된 것을 확인할 수 있다
+    
+    ​	✔ 모델을 직접 정의한게 아니라 장고 내부에 있는걸 가져와서 (클래스 상속)  바로 migrate까지 진행한 상태
 
 4.  커스텀 User 모델 등록
 
@@ -312,13 +316,9 @@ User 객체는 인증 시스템의 가장 기본
 
 
 
-
-
 #### UserCreationForm 커스텀
 
 - 기존 UserCreationForm을 상속받아 User 모델 재정의
-
-
 
 - get_user_model()
 
@@ -337,3 +337,136 @@ User 객체는 인증 시스템의 가장 기본
 
 
 #### 회원가입 진행 후 테이블 확인
+
+
+### 회원 가입 기능 구현
+
+1. 폼 생성
+
+![기능01](README.assets/기능01-16658548464398.png)
+
+![기능2](README.assets/기능2.png)
+
+![기능03](README.assets/기능03.png)
+
+![기능04](README.assets/기능04.png)
+
+2. POST 요청 처리
+
+   ![05_3](README.assets/05_3.png)
+
+   
+
+   settings.py 에서 기본설정인 auth.User => accounts.User로 변경으로 인한 오류 발생.
+
+   (UserCreationForm을 바로 쓰진 못한다)
+
+   why??  
+
+   내부 설정 때문에.
+
+   UserCreationForm은 ModelForm을 상속 받고 있다. ModelForm에는 모델 User 정보를 담고 있다.
+
+   이 User는 auth의 User (auth.User)를 의미함. 
+
+   그래서 상속을 받아서 바꿔줘야 한다 => 이 User가 아니라 accounts에 정의한 User (accounts.User)를 의미하도록 바꿔줘야함 
+
+   (내가 지금 쓰고있는 모델은 accounts에 있는 모델이기 때문에)
+
+   👉 상속 받아서 커스텀 진행
+
+   
+
+   ![기능06](README.assets/기능06.png)
+
+forms.py에서 상속 진행
+
+기존에 forms.ModelForm을 직접 상속받아서 자신이 만든 것과 달리
+
+UserCreationForm (이미 만들어진 폼)을 바탕으로 상속받아서 자신이 커스텀해서 만들었다
+
+
+
+*필드를 전체로 하면 다 출력되므로 (fields = '_ _ all _ _')
+
+
+
+![기능07](README.assets/기능07.png)
+
+회원가입 진행하면 데이터베이스에 저장됨
+
+![기능08](README.assets/기능08.png)
+
+이후 get_user_model()을 사용한다!!
+
+- admin 확인
+
+  ![기능09](README.assets/기능09-166591724477113.png)
+
+
+
+![기능10](README.assets/기능10.png)
+
+- forms.py
+
+  ![기능11](README.assets/기능11.png)
+
+  함수 호출하기
+
+  
+
+  accounts.User를 쓰는데 이 User는 언제든지 변경이 될 수 있기 때문에...
+
+  (장고도 쓰고 자신도 쓰면서)
+
+  그래서 User 참조할때는 모델에서 직접 꺼내서 쓰는게 아니라 
+
+  get_user_model() 함수를 통해서 User 클래스를 참조해야 한다
+
+  ✔ 여기하지 하면 User => get_user_model로 변경 완료
+
+  ✔ 직접 참조를 하지 않도록 하기위해 
+
+  ✔ 모델에서 User 클래스를 쓸 때 함수를 가져와서 호출하면 
+
+  ​	return 값이 setting.py에 지정되어 있는 User (accounts.User) 클래스를 의미하게 된다
+
+
+
+프로필 페이지 만들기 (detail.html)
+
+
+
+
+
+<br>
+
+### 📌 [참고] shell_plus
+
+```bash
+$ pip install django-extensions
+```
+
+![shell](README.assets/shell.png)
+
+```bash
+$ pip install ipython  # 이전에 했던 코드 자동완성 같은 지원을 받기위해 ipython 사용, 편하게 쉘 사용 가능
+$ pip freeze > requirements.txt
+$ python manage.py shell_plus  # 쉘 실행
+```
+
+![shell2](README.assets/shell2.png)
+
+<br>
+
+### 📌 [참고] Django_bootstrap5
+
+```bash
+$ pip install django-bootstrap5
+```
+
+![부트1](README.assets/부트1.png)
+
+![부트2](README.assets/부트2.png)
+
+![부트3_2](README.assets/부트3_2.png)
