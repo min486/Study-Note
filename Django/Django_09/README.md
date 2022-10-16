@@ -179,6 +179,10 @@ django.contrib.auth
 
 ![08_5](README.assets/08_5.png)
 
+
+
+
+
 <br>
 
 #### User 객체 활용
