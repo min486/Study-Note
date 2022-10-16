@@ -70,9 +70,9 @@
 >
 > 프로필 페이지 만들기
 >
-> [📌 shell_plus](#📌-shell-plus)
+> [📌 shell_plus](#📌-shell_plus)
 >
-> [📌 Django_bootstrap5](#📌-django-bootstrap5)
+> [📌 Django_bootstrap5](#📌-django_bootstrap5)
 
 ## 🔧 세부 내용
 
