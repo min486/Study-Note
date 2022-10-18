@@ -269,7 +269,6 @@
 - HttpRequest 객체를 인자로 받고 반환 값이 없음
 - 사용자가 로그인하지 않은 경우 오류를 발생시키지 않음
 
-#### 로그아웃 출력 확인 및 테스트
 <br>
 
 ### Limiting access to logged in users
@@ -376,7 +375,9 @@
 <br>
 
 📌 현재 로그인 되어있는 유저 정보 출력
+
 ![10_05](../README.assets/10_11.png)
+
 ![10_6](../README.assets/10_12.png)
 
 <br>
