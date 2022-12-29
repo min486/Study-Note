@@ -180,9 +180,9 @@
 >   >>> float(a)
 >   2.0
 >   ```
->   
+>
 >     문자열을 실수로 변환
->   
+>
 >   ```python
 >   b = '2.5'
 >   >>> float(b)
@@ -225,7 +225,58 @@
 >   3
 >   ```
 >
-> - isalpha / isalnum
+> - isalpha / isdigit / isalnum
+>
+>    ### isalpha()
+>    
+>    > 문자열의 구성이 알파벳 or 한글인지 확인.
+>    > 문자열에 공백, 기호, 숫자가 있을시 False를 리턴한다
+>    
+>    ```python
+>    ex_01 = 'A'
+>    ex_02 = 'S520'
+>    ex_03 = "코드앵글러"
+>    ex_04 = "Code_Angler"
+>    ex_05 = "Code Angler"
+>    
+>    print(ex_01.isalpha()) # True
+>    print(ex_02.isalpha()) # 숫자가 포함되여 False
+>    print(ex_03.isalpha()) # True
+>    print(ex_04.isalpha()) # 기호가 포함되어 False
+>    print(ex_05.isalpha()) # 공백이 포함되어 False
+>    ```
+>    
+>    ### isdigit()
+>    
+>    > 문자열의 구성이 숫자인지 확인.
+>    
+>    ```python
+>    ex_01 = '123'
+>    ex_02 = '010-1234-5678'
+>    ex_03 = "전화번호010"
+>    ex_04 = "Phone 010"
+>    
+>    print(ex_01.isdigit()) # True
+>    print(ex_02.isdigit()) # 기호가 포함되여 False
+>    print(ex_03.isdigit()) # 문자가 포함되어 False
+>    print(ex_04.isdigit()) # 공백이 포함되어 False
+>    ```
+>    
+>    ### isalnum()
+>    
+>    > 문자열의 구성이 알파벳(한글) 또는 숫자인지 확인.
+>    
+>    ```python
+>    ex_01 = '123'
+>    ex_02 = '010-1234-5678'
+>    ex_03 = "전화번호010"
+>    ex_04 = "Phone 010"
+>    
+>    print(ex_01.isalnum()) # True
+>    print(ex_02.isalnum()) # 기호가 포함되여 False
+>    print(ex_03.isalnum()) # True
+>    print(ex_04.isalnum()) # 공백이 포함되어 False
+>    ```
 >
 > - join
 >
@@ -407,7 +458,7 @@
 >   a = 'hello world'
 >   >>> a.replace('hello','hi')
 >   hi world
->   
+>
 >   a = oxoxox
 >   >>> a.replace('ox', '*', 1)
 >   *oxox
@@ -433,7 +484,7 @@
 >   # 위의 코드들은 A라는 리스트를 모두 reverse 해준다. 
 >   # 하지만 B라는 변수에 담거나 print를 바로 할 수 없다.
 >   # 코드 이후에 print(A) 해야 reversed 된 값들이 나온다.
->   
+>
 >   a = [1, 2, 3, 4]
 >   a.reverse()
 >   >>> print(a)
@@ -522,19 +573,19 @@
 >   {1, 2, 3}
 >   >>> list(set(a))
 >   [1, 2, 3]
->   
+>
 >   # | : 합집합 연산자
 >   a = {1, 2, 3}
 >   b = {2, 3, 4}
 >   >>> a | b
 >   {1, 2, 3, 4}
->   
+>
 >   # & : 교집합 연산자
 >   a = {1, 2, 3}
 >   b = {2, 3, 4}
 >   >>> a & b
 >   {2, 3}
->   
+>
 >   # - : 차집합 연산자
 >   a = {1, 2, 3}
 >   b = {2, 3, 4}
