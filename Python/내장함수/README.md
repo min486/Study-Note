@@ -228,49 +228,49 @@
 > - isalpha / isdigit / isalnum
 >
 >    ### isalpha()
->    
+>
 >    > 문자열의 구성이 알파벳 or 한글인지 확인 (문자열에 공백, 기호, 숫자가 있을시 False를 리턴)
->    
+>
 >    ```python
 >    ex_01 = 'A'
 >    ex_02 = 'S520'
 >    ex_03 = "코드앵글러"
 >    ex_04 = "Code_Angler"
 >    ex_05 = "Code Angler"
->    
+>
 >    print(ex_01.isalpha()) # True
 >    print(ex_02.isalpha()) # 숫자가 포함되여 False
 >    print(ex_03.isalpha()) # True
 >    print(ex_04.isalpha()) # 기호가 포함되어 False
 >    print(ex_05.isalpha()) # 공백이 포함되어 False
 >    ```
->    
+>
 >    ### isdigit()
->    
+>
 >    > 문자열의 구성이 숫자인지 확인
->    
+>
 >    ```python
 >    ex_01 = '123'
 >    ex_02 = '010-1234-5678'
 >    ex_03 = "전화번호010"
 >    ex_04 = "Phone 010"
->    
+>
 >    print(ex_01.isdigit()) # True
 >    print(ex_02.isdigit()) # 기호가 포함되여 False
 >    print(ex_03.isdigit()) # 문자가 포함되어 False
 >    print(ex_04.isdigit()) # 공백이 포함되어 False
 >    ```
->    
+>
 >    ### isalnum()
->    
+>
 >    > 문자열의 구성이 알파벳(한글) 또는 숫자인지 확인
->    
+>
 >    ```python
 >    ex_01 = '123'
 >    ex_02 = '010-1234-5678'
 >    ex_03 = "전화번호010"
 >    ex_04 = "Phone 010"
->    
+>
 >    print(ex_01.isalnum()) # True
 >    print(ex_02.isalnum()) # 기호가 포함되여 False
 >    print(ex_03.isalnum()) # True
@@ -594,7 +594,9 @@
 >
 > - split
 >
->   > split() 처럼 괄호 안에 아무 값도 넣어 주지 않으면 공백(스페이스, 탭, 엔터 등)을 기준으로 문자열을 나누어 준다. 이렇게 나눈 값은 리스트에 하나씩 들어가게 된다
+>   > split() 처럼 괄호 안에 아무 값도 넣어 주지 않으면 공백(스페이스, 탭, 엔터 등)을 기준으로 문자열을 나누어 준다
+>   >
+>   > 이렇게 나눈 값은 리스트에 하나씩 들어가게 된다
 >
 >   ```python
 >   a = "Life is too short"
