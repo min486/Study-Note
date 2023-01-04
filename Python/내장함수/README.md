@@ -655,7 +655,7 @@
 >
 >   > string.isupper() 는 문자열 내부에 있는 모든 문자가 대문자인지 검사하는 함수
 >
->   > string.islower() 는 문자열 내부에 있는 모든 문자가 대문자인지 검사하는 함수
+>   > string.islower() 는 문자열 내부에 있는 모든 문자가 소문자인지 검사하는 함수
 >
 >   ```python
 >   str1 = 'Hello'
