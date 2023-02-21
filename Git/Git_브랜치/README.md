@@ -11,38 +11,42 @@
 <br>
 <br>
 
-## 🔧세부 내용
+## 🔧내용
 
-### 변수
+### 브랜치 생성&전환
 
 ```javascript
-name = 'Min'
-age = 30
+git checkout -b [브랜치명]
 ```
 
 
 
-### 타입
+### 브랜치 전환
 
-- let
-
-  > 변할 수 있는 값 선언할 때
-
-- const
-
-  > 변하지 않는 값 선언할 때
+```javascript
+git checkout [브랜치명]
+```
 
 
 
-### 자료형
+### 브랜치 이름 변경
 
-- 문자형
+```javascript
+git branch -m [기존 브랜치명] [변경할 브랜치명]
+```
 
-  👉 " " or ' ' 사용 가능
 
-  👉 ``(백틱)은 변수나 표현식도 넣을 수 있다
 
-  ```javascript
-  `My name is ${name}`
-  `나는 ${20+1}살 입니다`
-  ```
+### 브랜치 확인
+
+```javascript
+git branch
+```
+
+
+
+### 브랜치 삭제
+
+```javascript
+git branch -d [브랜치명]
+```
