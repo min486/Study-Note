@@ -59,7 +59,7 @@ fun main(array: Array<String>) {
     }
 
     // 반복하는 방법 (6)
-  	// until은 마지막을 포함하지 않는다
+    // until은 마지막을 포함하지 않는다
     // a.size는 9 -> 0부터 8까지 이다
     for (i in 0 until a.size) {  
         println(a.get(i))
@@ -102,8 +102,8 @@ fun main(array: Array<String>) {
         b++  // while문을 정지 시키기 위한 코드
         println("b")
     }
-	
-	// 반복하는 방법 (12)
+
+    // 반복하는 방법 (12)
     var d: Int = 0
     var e: Int = 4
 

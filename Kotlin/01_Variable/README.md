@@ -66,7 +66,7 @@ fun main(args:Array<String>){
     num = 100
     hello = "Good Bye"
     point = 10.4
-//  fix = 500 (error)
+	// fix = 500 (error)
 
     println(num)
     println(hello)

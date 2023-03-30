@@ -113,7 +113,7 @@ fun main(array: Array<String>) {
     val result3 = plus(second = 100, first = 10)
     println(result3)
 
-    // 디폴트 값을 갖는 함수 호출하기
+    // 디폴트 값을 갖는 함수
     val result4 = plusFive(10, 20)
     println(result4)
     val result5 = plusFive(10)
